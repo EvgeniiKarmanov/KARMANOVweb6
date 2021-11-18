@@ -22,10 +22,10 @@ function resultproiz()
         document.getElementById('out').innerHTML = "Итог "+ rezult;
     }
 }
-window.addEventListener('DOMContentLoaded', function (proiz) {
-  console.log("DOM fully loaded and parsed");
-  let b = document.getElementById("result-btn");
-  b.addEventListener("click", proiz);
+window.addEventListener('DOMContentLoaded', function () {
+    console.log("DOM fully loaded and parsed");
+    let b = document.getElementById("result-btn");
+    b.addEventListener("click",resultsproiz);
 });
 function calcu() {
   const proverka = /^-+\d+$|\d+$/;
@@ -41,23 +41,23 @@ function calcu() {
     first[0] = Number.parseInt(first[0]);
     b[0] = Number.parseInt(b[0]);
     var res = first * b[0].value;
-    c.innerHTML = "Итого: " + Math.abs(res);
+    c.innerHTML = "Итог " + Math.abs(res);
     return false;
   }
 }
 
 function getPrices() {
   return {
-    prodTypes: [105, 250, 350],
+    prodTypes: [70, 0, 0],
     prodOptions: {
-      option1: 40,
-      option2: 60,
-      option3: 80,
+      option1: 30,
+      option2: 25,
+      option3: 40,
     },
     prodProperties: {
-      prop1: 600,
-      prop2: 700,
-      prop3: 800,
+      prop1: 799,
+      prop2: 1599,
+      prop3: 499,
     }
   };
 }
@@ -99,7 +99,7 @@ function updatePrice() {
     checkDiv.style.display = "none";
   let prodPrice = document.getElementById("prodPrice");
   if (select.value == "0") {
-    price = 100;
+    price = 70;
   }
   prodPrice.innerHTML = price + " рублей";
 }
@@ -107,18 +107,14 @@ window.addEventListener('DOMContentLoaded', function (event) {
 
   let button = document.getElementById("butt");
   button.addEventListener("Click", calcu);
-
   let radioDiv = document.getElementById("radios");
   radioDiv.style.display = "none";
-
   let s = document.getElementsByName("prodType");
   let select = s[0];
-
   select.addEventListener("change", function (event) {
     let target = event.target;
     updatePrice();
   });
-
   let radios = document.getElementsByName("prodOptions");
   radios.forEach(function (radio) {
     radio.addEventListener("change", function (event) {
@@ -126,7 +122,6 @@ window.addEventListener('DOMContentLoaded', function (event) {
       updatePrice();
     });
   });
-
   let checkboxes = document.querySelectorAll("#checkboxes input");
   checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener("change", function (event) {
@@ -134,7 +129,5 @@ window.addEventListener('DOMContentLoaded', function (event) {
       updatePrice();
     });
   });
-
-
   updatePrice();
 });
