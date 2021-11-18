@@ -55,9 +55,9 @@ function getPrices() {
       option3: 40,
     },
     prodProperties: {
-      prop1: 799,
-      prop2: 1599,
-      prop3: 499,
+      prop1: 500,
+      prop2: 1000,
+      prop3: 1500,
     }
   };
 }
