@@ -1,26 +1,26 @@
-function proiz() {
-  var num1, num2, rezult;
-  num1 = document.getElementById('n1').value;
-  num1 = parseInt(num1);
-  num2 = document.getElementById('n2').value;
-  num2 = parseInt(num2);
-  var reg = /[A-Za-zА-Яа-яЁё]/g;
-  if (reg.test(num1) || reg.test(num2) || num1 < 0 || num2 < 0) {
-      alert('Введите только положит числа');
-  }
-  if (num1 == 0 || num2 == 0) {
-      alert('Введите значения!');
-  }
-  rezult = num1 * num2;
-  if (rezult <= 0) {
-      alert('Возникла ошибка, значения не могу быть отрицательными или ниже 0');
-      let str = "Ошибка!";
-      document.getElementById('out').innerHTML = str;
-  }
-  //innerHTML
-  else {
-      document.getElementById('out').innerHTML = rezult;
-  }
+function resultproiz()
+{
+    let znach1,znach2,rezult;
+    znach1 = document.getElementById('a').value;
+    znach1 = parseInt(znach1);
+    znach2 = document.getElementById('b').value;
+    znach2 = parseInt(znach2);
+    if(znach1<0||znach2<0){
+        alert('Вводите только числа(положительные)');
+    }
+    if(znach1===0||znach2===0){
+        alert('Ввести');
+    }
+    rezult = znach1*znach2;
+    if(rezult<=0){
+        alert('Результат не может принимать отрицательные значения');
+        let str = "Ошибка";
+        document.getElementById('out').innerHTML = str;
+    }
+    else
+    {
+        document.getElementById('out').innerHTML = "Итог "+ rezult;
+    }
 }
 window.addEventListener('DOMContentLoaded', function (proiz) {
   console.log("DOM fully loaded and parsed");
